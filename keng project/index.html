@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+        <style>
+         body {
+  font-family: 'Open Sans', sans-serif;
+  background: #FDF8F4;
+  color: #222222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #D32F2F;
+}
+
+h2 {
+  background: #FFEFEF;
+  padding: 0.5em 1em;
+  border-radius: 0.4em;
+  box-shadow: 2px 2px 5px rgba(211,47,47,0.5);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* En-tête */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1B3558;
+  padding: 1em 2em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  flex: 0 0 auto;
+}
+
+.header-logo {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2em;
+}
+
+.header-nav li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  color: #D32F2F;
+  border-bottom: 2px solid #D32F2F;
+}
+
+/* Section Accueil */
+.accueil-section {
+  height: 60vh;
+  background-image: url('images/logo.png');
+  border-radius: 1.5%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.accueil-overlay {
+  background: rgba(27, 53, 88, 0.7); /* Overlay sombre pour lisibilité */
+  padding: 2em;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.accueil-section h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: white;
+}
+
+/* Sections générales */
+.apropos-section,
+.services-section,
+.missions-section,
+.contact-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.apropos-section p {
+  font-size: 1.1em;
+  text-align: justify;
+}
+
+/* Section Services */
+.services-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.service-item {
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.service-item p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #1B3558;
+}
+
+/* Section Missions */
+.missions-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.missions-column {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.missions-column h3 {
+  color: #1B3558;
+  border-bottom: 2px solid #D32F2F;
+  padding-bottom: 0.5em;
+}
+
+.missions-column p {
+  text-align: justify;
+}
+
+/* Section Contact */
+/* .contact-section {
+  text-align: center;
+}
+
+.contact-section a {
+  color: #D32F2F;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+} */
+
+/* Styles pour la Section Contact Retravaillée */
+.contact-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.address-container {
+  margin: 20px 0 30px;
+}
+
+.address-container p {
+  font-size: 1.2em;
+  color: #1B3558;
+  font-weight: bold;
+  margin: 0;
+}
+
+.contact-subtitle {
+  color: #D32F2F;
+  font-size: 1.5em;
+  font-style: italic;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  text-align: center;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+
+.phone-btn {
+  background-color: #1B3558;
+  color: white;
+  border: 2px solid #1B3558;
+}
+
+.phone-btn:hover {
+  background-color: white;
+  color: #1B3558;
+  transform: translateY(-2px);
+}
+
+.email-btn {
+  background-color: #D32F2F;
+  color: white;
+  border: 2px solid #D32F2F;
+}
+
+.email-btn:hover {
+  background-color: white;
+  color: #D32F2F;
+  transform: translateY(-2px);
+}
+
+.phone-numbers {
+  text-align: center;
+}
+
+.phone-numbers p {
+  margin: 5px 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Responsive : Sur mobile, boutons empilés et centrés */
+@media (max-width: 768px) {
+  .contact-buttons-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .contact-left,
+  .contact-right {
+      width: 100%;
+      max-width: 300px;
+  }
+  
+  .contact-btn {
+      min-width: 100%;
+      padding: 12px 20px;
+  }
+  
+  .address-container p {
+      font-size: 1.1em;
+  }
+  
+  .contact-subtitle {
+      font-size: 1.3em;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #1B3558;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-style: italic;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header {
+      flex-direction: column;
+      gap: 1em;
+      padding: 1em;
+  }
+  
+  .header-nav ul {
+      flex-direction: column;
+      gap: 1em;
+      text-align: center;
+  }
+  
+  .accueil-section {
+      height: 50vh;
+  }
+  
+  .accueil-section h1 {
+      font-size: 2em;
+  }
+  
+  .services-gallery {
+      grid-template-columns: 1fr;
+  }
+  
+  .missions-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+  }
+}
+
+/* Styles pour la Section Références avec Carrousel */
+.references-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #FDF8F4;
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 40px;
+  font-style: sans-serif;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  align-items: center;
+}
+
+.carousel-slide {
+  flex: 0 0 300px; /* Largeur fixe par slide sur desktop */
+  text-align: center;
+  padding: 20px;
+  background: #FDF8F4;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-slide:hover {
+  transform: scale(1.05);
+}
+
+.circle-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Images en cercles */
+  object-fit: cover;
+  margin: 0 auto 15px;
+  border: 4px solid #1B3558;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.circle-img:hover {
+  border-color: #D32F2F;
+}
+
+.slide-desc h3 {
+  color: #1B3558;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.slide-desc p {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Flèches de Navigation */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(27, 53, 88, 0.7);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: #1B3558;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Indicateurs (Dots) */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #D32F2F;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .carousel-slide {
+      flex: 0 0 250px;
+  }
+  
+  .circle-img {
+      width: 150px;
+      height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+      flex: 0 0 280px; /* Pleine largeur sur mobile */
+      margin: 0 auto;
+  }
+  
+  .carousel-container {
+      padding: 10px;
+  }
+  
+  .circle-img {
+      width: 120px;
+      height: 120px;
+  }
+  
+  .slide-desc h3 {
+      font-size: 1.1em;
+  }
+  
+  .slide-desc p {
+      font-size: 0.9em;
+  }
+  
+  /* Masquer flèches sur très petit écran si besoin, mais les garder visibles */
+  .carousel-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+  }
+}
+
+.text{
+text-align: center;
+}
+    
+        </style>
+    <title>Keng Engineering | Ingénierie et Services électriques</title>
+</head>
+<body>
+
+<!-- En-tête avec logo à gauche et navigation à droite -->
+<header class="site-header">
+    <div class="header-left">
+        <img src="images/logo.png" alt="Logo Keng Engineering" class="header-logo" href="#accueil">
+    </div>
+    <nav class="header-nav">
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#services">Nos services</a></li>
+            <li><a href="#missions">Nos missions</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Section Accueil avec fond logo.png -->
+<section id="accueil" class="accueil-section">
+    <div class="accueil-overlay">
+        <h1>Bienvenue chez Keng Engineering</h1>
+        <p>Leader en ingénierie et services électriques au Cameroun.</p>
+    </div>
+</section>
+
+<!-- Section À propos -->
+<section id="apropos" class="apropos-section">
+    <h2>À propos</h2>
+    <p>Créée en 2016 par Monsieur KENGNE Guy Roger, ingénieur électricien, KENG ENGINEERING s’appuie sur plus de 15 ans d’expérience dans le domaine des réseaux électriques. Nous sommes spécialisés dans la conception, la réalisation et la maintenance de réseaux électriques HT/MT/BT, l’électricité industrielle, l’éclairage public et l’installation de réseaux à fibre optique.</p>
+</section>
+
+<!-- Section Nos Services avec 6 images -->
+<section id="services" class="services-section">
+    <h2>Nos Services</h2>
+    <p class="text">Nous offrons nos services dans:</p>
+    <div class="services-gallery">
+        <!-- Image 1: Réseaux électriques HT/MT/BT -->
+        <div class="service-item">
+            <img src="images/photo2.png" alt="Réseaux électriques HT/MT/BT" class="service-img">
+            <p>Réseaux électriques HT/MT/BT</p>
+        </div>
+        <!-- Image 2: Électricité industrielle et bâtiment -->
+        <div class="service-item">
+            <img src="images/photo1.png" alt="Électricité industrielle et bâtiment" class="service-img">
+            <p>Électricité industrielle et bâtiment</p>
+        </div>
+        <!-- Image 3: Éclairage public -->
+        <div class="service-item">
+            <img src="images/photo6.png" alt="Éclairage public" class="service-img">
+            <p>Éclairage public (routes, parkings, jardins)</p>
+        </div>
+        <!-- Image 4: Construction de bâtiments techniques -->
+        <div class="service-item">
+            <img src="images/photo3.png" alt="Construction de bâtiments techniques" class="service-img">
+            <p>Construction de bâtiments techniques</p>
+        </div>
+        <!-- Image 5: Construction de galeries -->
+        <div class="service-item">
+            <img src="images/photo4.png" alt="Construction de galeries" class="service-img">
+            <p>Construction de galeries</p>
+        </div>
+        <!-- Image 6: Installation de réseaux à fibre optique -->
+        <div class="service-item">
+            <img src="images/photo5.png" alt="Installation de réseaux à fibre optique" class="service-img">
+            <p>Installation de réseaux à fibre optique</p>
+        </div>
+    </div>
+</section>
+
+<!-- Section Nos Missions, divisée en deux colonnes -->
+<section id="missions" class="missions-section">
+    <h2>Nos Missions</h2>
+    <div class="missions-container">
+        <div class="missions-column">
+            <h3>Nos Approches</h3>
+            <p>Nous intégrons des paramètres de gestion scienifique des projets, y compris la gestion de l'information sur l'ensemble du chantier. La sécurité du personnel et du public est coeur de nos actions.</p>
+            <!-- Ajoutez plus de texte ou des points ici si needed -->
+        </div>
+        <div class="missions-column">
+            <h3>Nos Atouts</h3>
+            <p>Nos forces résident dans notre expertise technique reconnue, des équipes qualifiées, le respect des délais et normes et dans la proximité avec nos clients.</p>
+            <!-- Ajoutez plus de texte ou des points ici si needed -->
+        </div>
+    </div>
+</section>
+
+<!-- Section Nos Références avec Carrousel -->
+<section id="references" class="references-section">
+    <h2>Nos Références</h2>
+    <p class="section-intro">Découvrez nos principaux exploits et projets réalisés au fil des années, témoignant de notre expertise.</p>
+    
+    <div class="carousel-container">
+        <!-- Zone de défilement des slides -->
+        <div class="carousel-track" id="carouselTrack">
+            <!-- Slide 1: 2016 -->
+            <div class="carousel-slide">
+                <img src="images/logo.png" alt="Fondation Keng Engineering" class="circle-img reference-img">
+                <div class="slide-desc">
+                    <h3>2016 : Création</h3>
+                    <p>Création de l'entreprise KENG ENGINEERING à Douala.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 2: 2018 -->
+            <div class="carousel-slide">
+                <img src="images/photo1.png" alt="Installation Éclairage Public" class="circle-img reference-img">
+                <div class="slide-desc">
+                    <h3>SONARA(Primelec)</h3>
+                    <p>Alimentation 15kV depuis la centrale thermique jusqu'au poste SONARA.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 3: 2020 -->
+            <div class="carousel-slide">
+                <img src="images/photo2.png" alt="Réseaux Fibre Optique" class="circle-img reference-img">
+                <div class="slide-desc">
+                    <h3>2021 : SONATREL</h3>
+                    <p>Renforcement ligne 90kV Logbaba-Koumassi.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 4: 2022 -->
+            <div class="carousel-slide">
+                <img src="images/photo6.png" alt="Électricité Industrielle" class="circle-img reference-img">
+                <div class="slide-desc">
+                    <h3>SONATREL</h3>
+                    <p>Réhabilitation ligne 90kV Mangombe-Logbaba.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 5: 2024 -->
+            <div class="carousel-slide">
+                <img src="images/photo5.png" alt="Bâtiments Techniques" class="circle-img reference-img">
+                <div class="slide-desc">
+                    <h3>2025 : SONATREL</h3>
+                    <p>Réhabilitation de 8 pylones de 225kV Songloulou-Logbaba.</p>
+                </div>
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/photo3.png" alt="Bâtiments Techniques" class="circle-img reference-img">
+                <div class="slide-desc">
+                    <h3>2025 : ITS</h3>
+                    <p>Création depart 15kV poste Source 90kV Bonassama-poste MAYA.</p>
+                </div>
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/photo4.png" alt="Bâtiments Techniques" class="circle-img reference-img">
+                <div class="slide-desc">
+                    <h3>Camtel/SOCEMIC</h3>
+                    <p>Implémentation de 1200 supports bétons à DOUALA.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flèches de Navigation -->
+        <button class="carousel-btn prev-btn" id="prevBtn">‹</button>
+        <button class="carousel-btn next-btn" id="nextBtn">›</button>
+        
+        <!-- Indicateurs (Dots) -->
+        <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+</section>
+
+
+<!-- Section Contact -->
+<section id="contact" class="contact-section">
+    <h2>Contact</h2>
+    
+    <!-- Adresse centrée -->
+    <div class="address-container">
+        <p>Adresse : Douala PK 12</p>
+    </div>
+    
+    <!-- Mention au-dessus des boutons -->
+    <h3 class="contact-subtitle">Contactez-nous</h3>
+    
+    <!-- Conteneur pour les deux boutons (gauche/droite) -->
+    <div class="contact-buttons-wrapper">
+        <!-- Bouton Gauche : Téléphone -->
+        <div class="contact-left">
+            <a href="tel:+237676325605" class="contact-btn phone-btn">
+                📞 Contact Téléphonique
+            </a>
+            <div class="phone-numbers">
+                <p>(+237) 676 32 56 05</p>
+                <p>(+237) 654 25 72 06</p>
+            </div>
+        </div>
+        
+        <!-- Bouton Droit : Email -->
+        <div class="contact-right">
+            <a href="mailto:keng_engineering@yahoo.com" class="contact-btn email-btn">
+                ✉️ Contact Email
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2024 Keng Engineering - Tous droits réservés
+</footer>
+
+<script>
+// Attendre le chargement du DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling pour la navigation
+    const navLinks = document.querySelectorAll('.header-nav a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Ajouter classe active
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // Modale pour les images des services
+    const serviceImages = document.querySelectorAll('.service-img');
+    let modal = null;
+    let modalImg = null;
+    let modalCaption = null;
+
+    serviceImages.forEach(img => {
+        img.addEventListener('click', function() {
+            // Créer modale si inexistante
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.8);
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                modalImg = document.createElement('img');
+                modalImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 10px;
+                `;
+                
+                modalCaption = document.createElement('p');
+                modalCaption.style.cssText = `
+                    color: white;
+                    position: absolute;
+                    bottom: 20px;
+                    text-align: center;
+                    width: 100%;
+                    font-size: 1.2em;
+                `;
+                
+                modal.appendChild(modalImg);
+                modal.appendChild(modalCaption);
+                document.body.appendChild(modal);
+
+                // Fermeture modale
+                modal.addEventListener('click', closeModal);
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') closeModal();
+                });
+            }
+
+            // Afficher image et légende
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+            modalCaption.textContent = this.nextElementSibling.textContent; // Légende du service
+            modal.style.display = 'flex';
+        });
+    });
+
+    function closeModal() {
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Animations de révélation au défilement
+    const sections = document.querySelectorAll('section');
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+
+    // Style pour .active (si pas déjà en CSS)
+    if (!document.querySelector('style[data-active]')) {
+        const style = document.createElement('style');
+        style.setAttribute('data-active', 'true');
+        style.textContent = `
+            .header-nav a.active {
+                color: #D32F2F !important;
+                border-bottom: 2px solid #D32F2F;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+});
+
+// Logique du Carrousel pour Références
+const track = document.getElementById('carouselTrack');
+const slides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const dotsContainer = document.getElementById('carouselDots');
+
+let currentIndex = 0;
+const slideWidth = 320; // Largeur slide + gap (300px + 20px)
+const totalSlides = slides.length;
+let autoSlideInterval;
+
+// Créer les dots
+function createDots() {
+    dotsContainer.innerHTML = '';
+    slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+// Aller à un slide spécifique
+function goToSlide(index) {
+    currentIndex = index;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    updateDots();
+}
+
+// Mettre à jour les dots actifs
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+// Slide suivant
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(currentIndex);
+}
+
+// Slide précédent
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    goToSlide(currentIndex);
+}
+
+// Auto-slide
+function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000); // 5 secondes
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+// Événements
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+}
+
+const container = document.querySelector('.carousel-container');
+if (container) {
+    container.addEventListener('mouseenter', stopAutoSlide);
+    container.addEventListener('mouseleave', startAutoSlide);
+}
+
+// Initialiser
+createDots();
+startAutoSlide();
+
+// Adapter pour responsive (optionnel : recalculer slideWidth sur resize)
+window.addEventListener('resize', () => {
+    // Recalcul si besoin, mais fixe pour simplicité
+});
+</script>
+
+</body>
+</html>
