@@ -1,0 +1,564 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #FDF8F4;
+  color: #222222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #D32F2F;
+}
+
+h2 {
+  background: #FFEFEF;
+  padding: 0.5em 1em;
+  border-radius: 0.4em;
+  box-shadow: 2px 2px 5px rgba(211,47,47,0.5);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style général pour le fond */
+body {
+  background-color: #f8f9fa; /* Couleur de fond claire */
+  color: #333; /* Couleur du texte */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Style pour la navigation */
+.site-header {
+  background-color: #1B3558; /* Fond blanc pour la navigation */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre pour démarquer */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #333; /* Couleur des liens */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #007bff; /* Couleur au survol */
+}
+
+/* Style pour les sections */
+.accueil-section {
+  background: url('images/logo.png') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.apropos-section,
+.services-section,
+.missions-section,
+.references-section,
+.contact-section {
+  background-color: #ffffff; /* Fond blanc pour uniformité */
+  padding: 50px 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+/* En-tête */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1B3558;
+  padding: 1em 2em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  flex: 0 0 auto;
+}
+
+.header-logo {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2em;
+}
+
+.header-nav li a {
+  color: #1B3558;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  color: #2f3dd3;
+  border-bottom: 2px solid #4d2fd3;
+}
+
+/* Section Accueil */
+.accueil-section {
+  height: 60vh;
+  background-image: url('images/logo.png');
+  border-radius: 1.5%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.accueil-overlay {
+  background: rgba(27, 53, 88, 0.7); /* Overlay sombre pour lisibilité */
+  padding: 2em;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.accueil-section h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: white;
+}
+
+/* Sections générales */
+.apropos-section,
+.services-section,
+.missions-section,
+.contact-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.apropos-section p {
+  font-size: 1.1em;
+  text-align: justify;
+}
+
+/* Section Services */
+.services-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.service-item {
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.service-item p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #1B3558;
+}
+
+/* Section Missions */
+.missions-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.missions-column {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.missions-column h3 {
+  color: #1B3558;
+  border-bottom: 2px solid #D32F2F;
+  padding-bottom: 0.5em;
+}
+
+.missions-column p {
+  text-align: justify;
+}
+
+/* Section Contact */
+/* .contact-section {
+  text-align: center;
+}
+
+.contact-section a {
+  color: #D32F2F;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+} */
+
+/* Styles pour la Section Contact Retravaillée */
+.contact-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.address-container {
+  margin: 20px 0 30px;
+}
+
+.address-container p {
+  font-size: 1.2em;
+  color: #1B3558;
+  font-weight: bold;
+  margin: 0;
+}
+
+.contact-subtitle {
+  color: #D32F2F;
+  font-size: 1.5em;
+  font-style: italic;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  text-align: center;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+
+.phone-btn {
+  background-color: #1B3558;
+  color: white;
+  border: 2px solid #1B3558;
+}
+
+.phone-btn:hover {
+  background-color: white;
+  color: #1B3558;
+  transform: translateY(-2px);
+}
+
+.email-btn {
+  background-color: #D32F2F;
+  color: white;
+  border: 2px solid #D32F2F;
+}
+
+.email-btn:hover {
+  background-color: white;
+  color: #D32F2F;
+  transform: translateY(-2px);
+}
+
+.phone-numbers {
+  text-align: center;
+}
+
+.phone-numbers p {
+  margin: 5px 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Responsive : Sur mobile, boutons empilés et centrés */
+@media (max-width: 768px) {
+  .contact-buttons-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .contact-left,
+  .contact-right {
+      width: 100%;
+      max-width: 300px;
+  }
+  
+  .contact-btn {
+      min-width: 100%;
+      padding: 12px 20px;
+  }
+  
+  .address-container p {
+      font-size: 1.1em;
+  }
+  
+  .contact-subtitle {
+      font-size: 1.3em;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #1B3558;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-style: italic;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header {
+      flex-direction: column;
+      gap: 1em;
+      padding: 1em;
+  }
+  
+  .header-nav ul {
+      flex-direction: column;
+      gap: 1em;
+      text-align: center;
+  }
+  
+  .accueil-section {
+      height: 50vh;
+  }
+  
+  .accueil-section h1 {
+      font-size: 2em;
+  }
+  
+  .services-gallery {
+      grid-template-columns: 1fr;
+  }
+  
+  .missions-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+  }
+}
+
+/* Styles pour la Section Références avec Carrousel */
+.references-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #FDF8F4;
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 40px;
+  font-style: sans-serif;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  align-items: center;
+}
+
+.carousel-slide {
+  flex: 0 0 300px; /* Largeur fixe par slide sur desktop */
+  text-align: center;
+  padding: 20px;
+  background: #FDF8F4;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-slide:hover {
+  transform: scale(1.05);
+}
+
+.circle-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Images en cercles */
+  object-fit: cover;
+  margin: 0 auto 15px;
+  border: 4px solid #1B3558;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.circle-img:hover {
+  border-color: #D32F2F;
+}
+
+.slide-desc h3 {
+  color: #1B3558;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.slide-desc p {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Flèches de Navigation */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(27, 53, 88, 0.7);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: #1B3558;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Indicateurs (Dots) */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #D32F2F;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .carousel-slide {
+      flex: 0 0 250px;
+  }
+  
+  .circle-img {
+      width: 150px;
+      height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+      flex: 0 0 280px; /* Pleine largeur sur mobile */
+      margin: 0 auto;
+  }
+  
+  .carousel-container {
+      padding: 10px;
+  }
+  
+  .circle-img {
+      width: 120px;
+      height: 120px;
+  }
+  
+  .slide-desc h3 {
+      font-size: 1.1em;
+  }
+  
+  .slide-desc p {
+      font-size: 0.9em;
+  }
+  
+  /* Masquer flèches sur très petit écran si besoin, mais les garder visibles */
+  .carousel-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+  }
+}
+
+.text{
+text-align: center;
+}
